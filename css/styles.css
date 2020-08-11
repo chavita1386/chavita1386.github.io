@@ -33,8 +33,6 @@ body {
   font-size: 16px;
   font-family: var(--font-family-body);
   height: 100vh;
-  background: url("../images/graph.svg") 5% 90% no-repeat,
-    url("../images/todo-list.svg") 70% 10% no-repeat;
 }
 
 a {
@@ -42,7 +40,7 @@ a {
 }
 
 .wrapper {
-  min-width: var(--wrapper-width);
+  width: 99%;
   max-width: var(--wrapper-width);
   margin: 0 auto;
   padding: 0.5rem;
@@ -51,6 +49,7 @@ a {
 .header {
   position: fixed;
   width: 100%;
+  z-index: 10;
 }
 
 .header .wrapper {
@@ -74,6 +73,15 @@ a {
   margin: 0 2.5rem 0 0;
   color: var(--font-black);
   text-transform: uppercase;
+}
+
+.main-menu__link .fas {
+  display: none;
+}
+
+.main-menu__link:hover {
+  cursor: pointer;
+  color: var(--accent);
 }
 
 .main-menu__link.current {
@@ -106,17 +114,18 @@ a {
 }
 
 .content {
-  /* margin: 2rem auto; */
-  padding: 1rem;
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  position: relative;
 }
 
 .content__description {
   width: 40%;
+  position: relative;
+  top: -200px;
 }
 
 .welcome__greeting {
@@ -183,4 +192,96 @@ a {
   bottom: 0;
   width: 100%;
   text-align: center;
+}
+
+.footer__figure img {
+  width: 100%;
+  max-width: 500px;
+}
+
+@media all and (max-width: 480px) {
+  body {
+    font-size: 15px;
+    font-family: var(--font-family-body);
+    height: 100%;
+  }
+
+  .header {
+    position: relative;
+    width: 100%;
+  }
+
+  .header .wrapper {
+    height: 60px;
+  }
+
+  .social {
+    position: absolute;
+    right: 10px;
+  }
+
+  .main-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    justify-content: space-between;
+    z-index: 10;
+  }
+
+  .main-menu__link {
+    margin: 0;
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    color: var(--font-gray);
+    text-transform: capitalize;
+  }
+
+  .main-menu__link .fas {
+    display: block;
+    min-width: 100%;
+    text-align: center;
+    margin: 0.3rem 0;
+    font-size: 1.2rem;
+  }
+
+  .main-menu__link.current {
+    font-weight: 600;
+    color: var(--font-black);
+  }
+
+  .content {
+    margin: 0 auto 9rem auto;
+    flex-wrap: wrap;
+    z-index: -1;
+    align-content: initial;
+    align-items: initial;
+  }
+
+  .content__description {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1.8rem;
+    top: 0;
+  }
+
+  .content__body {
+    width: 100%;
+    padding: 0.5rem;
+    z-index: 0;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .footer {
+    bottom: 45px;
+  }
 }
